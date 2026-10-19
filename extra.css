@@ -1,0 +1,26 @@
+/* ===== TechScale extra styles: lessons + locator ===== */
+.progress{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:16px 22px;margin:26px 0 18px}
+.progress .track{height:10px;border-radius:99px;background:#eef1f8;overflow:hidden;margin-top:10px}
+.progress .fill{height:100%;width:0;background:var(--accent,var(--blue));transition:width .4s}
+.progress strong{font-family:'IBM Plex Mono',monospace;font-size:.85rem}
+details.lesson summary{display:flex;justify-content:space-between;gap:12px;align-items:center}
+details.lesson .done{font:600 .72rem 'IBM Plex Mono',monospace;color:#217a3c;background:#e5f5ea;border-radius:6px;padding:3px 9px;display:none}
+details.lesson.complete .done{display:inline-block}
+details.lesson .body p,details.lesson .body ul{color:var(--text);margin-top:12px}
+details.lesson .body ul{padding-left:22px}
+details.lesson .body li{margin-top:6px}
+.box{border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;margin-top:18px;background:#fbfcff}
+.box h4{font:600 .78rem 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--accent,var(--blue))}
+.box label{display:flex;gap:8px;align-items:flex-start;margin-top:10px;cursor:pointer}
+.box .btn{margin-top:14px;padding:10px 18px}
+.fb{margin-top:12px;font-weight:600}
+.fb.ok{color:#217a3c}.fb.no{color:#c0392b}
+.editor{width:100%;min-height:120px;font:500 .9rem 'IBM Plex Mono',monospace;background:#0b1b3d;color:#e8eeff;border-radius:10px;margin-top:10px;padding:12px}
+.out{white-space:pre-wrap;font:500 .88rem 'IBM Plex Mono',monospace;background:#f2f4f7;border-radius:10px;padding:12px;margin-top:10px;min-height:44px}
+.out.err{color:#c0392b}
+.btn.alt{background:#fff;color:var(--blue)}
+.result{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.dist{font:600 .8rem 'IBM Plex Mono',monospace;color:var(--blue)}
+.empty{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:30px;margin-top:20px}
+.empty .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.bar select{min-width:170px}

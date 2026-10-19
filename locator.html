@@ -1,0 +1,8 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Find a Class | TechScale</title><meta name="description" content="Find free tech classes near you by ZIP code."><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="extra.css"></head><body data-page="locator"><div id="nav"></div><main>
+<section class="hero" style="padding-bottom:20px"><div class="wrap"><span class="eyebrow">Find a class</span><h1>Tech classes near you.</h1><p class="lead">Enter your ZIP code to see the closest classes. Nothing nearby? You can <a href="request-class.html">request one</a>.</p>
+<form id="zipform" class="bar" novalidate><input id="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="ZIP code" aria-label="ZIP code">
+<select id="topic" aria-label="Topic"><option value="">All topics</option><option>AI literacy</option><option>Coding</option><option>Computer basics</option><option>STEM and robotics</option></select>
+<button class="btn" type="submit">Search</button><button class="btn ghost" type="button" id="geo">Use my location</button></form>
+<p class="msg" id="lmsg" role="status"></p>
+<div id="results"></div></div></section>
+</main><div id="foot"></div><script src="main.js"></script><script src="classes.js"></script><script src="locator.js"></script></body></html>

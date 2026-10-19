@@ -1,0 +1,10 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Request a Class | TechScale</title><meta name="description" content="No class nearby? Request one."><link rel="stylesheet" href="style.css"></head><body data-page="request"><div id="nav"></div><main>
+<section class="hero"><div class="wrap"><span class="eyebrow">No class nearby?</span><h1>Request a class.</h1><p class="lead">Requests show libraries and schools where people want to learn.</p>
+<div><form class="f" data-form="class-request" data-thanks="Thanks! Your request was sent. 🎉" novalidate>
+<label>ZIP code *<input name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" required></label>
+<label>Topic *<select name="topic" required><option value="">Choose one</option><option>AI literacy</option><option>Coding</option><option>Computer basics</option><option>STEM and robotics</option></select></label>
+<label>Who is it for? *<select name="audience" required><option value="">Choose one</option><option>Kids</option><option>Teens</option><option>Adults</option><option>Seniors</option><option>All ages</option></select></label>
+<label>Email (optional)<input name="email" type="email"></label>
+<label class="full">Notes<textarea name="notes" rows="3"></textarea></label>
+<div class="full"><button class="btn" type="submit">Send request</button></div></form><p class="msg" role="status"></p></div></div></section>
+</main><div id="foot"></div><script src="main.js"></script></body></html>

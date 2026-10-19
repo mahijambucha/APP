@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a class · TechScale</title>
+  <meta name="description" content="Search a map of coding, AI, and computer classes near you.">
+
+  <!-- Font: Inter Tight -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Map library -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="locator">
+
+  <!-- Nav bar is added here by main.js -->
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- ===== LOCATOR (Elena) ===== -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Find a class</span>
+        <h1>Find a tech class <span class="accent">near you</span></h1>
+        <p class="lead">Online lessons are a great start, but learning with a teacher and classmates helps skills stick. Search for coding, AI, computer basics, and STEM classes in your community, then get directions in one click.</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <form id="loc-search" class="loc-search">
+        <label class="loc-search-box">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="loc-query" type="text" placeholder="Search by ZIP code, city, or state" aria-label="Search by ZIP code, city, or state">
+        </label>
+        <label class="loc-radius-box">
+          <span class="sr-only">Distance</span>
+          <select id="loc-radius">
+            <option value="5">5 mi</option>
+            <option value="10">10 mi</option>
+            <option value="25" selected>25 mi</option>
+            <option value="50">50 mi</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn-dark">Search</button>
+      </form>
+
+      <div class="loc-chips" id="loc-chips" role="group" aria-label="Show categories">
+        <button type="button" class="chip active" data-cat="coding" aria-pressed="true"><i class="dot" style="background:#0d9488"></i>Coding</button>
+        <button type="button" class="chip active" data-cat="ai" aria-pressed="true"><i class="dot" style="background:#7c3aed"></i>AI</button>
+        <button type="button" class="chip active" data-cat="basics" aria-pressed="true"><i class="dot" style="background:#d97706"></i>Computer basics</button>
+        <button type="button" class="chip active" data-cat="stem" aria-pressed="true"><i class="dot" style="background:#db2777"></i>STEM &amp; robotics</button>
+      </div>
+
+      <div class="loc-map-wrap">
+        <div id="loc-map" class="loc-map"></div>
+      </div>
+      <p id="loc-status" class="loc-status" role="status"></p>
+
+      <div class="loc-results-head">
+        <h2 id="loc-count">Results</h2>
+        <a class="text-link" id="loc-request-link" href="request.html">Don't see one? Request a class →</a>
+      </div>
+      <div id="loc-list" class="loc-list"></div>
+      <button type="button" id="loc-more" class="btn btn-outline loc-more" hidden>Show more results</button>
+
+      <div class="loc-section" id="loc-online-section">
+        <h2>Online &amp; rotating programs</h2>
+        <div id="loc-online-list" class="loc-list"></div>
+      </div>
+
+      <div class="loc-section">
+        <h2>More places to look</h2>
+        <div class="link-grid">
+          <a class="card link-card" href="https://code.org/learn/local" target="_blank" rel="noopener">
+            <h3>Code.org local classes</h3>
+            <p>Schools, clubs, and camps that teach computer science.</p>
+            <span>Visit site →</span>
+          </a>
+          <a class="card link-card" href="https://www.digitalliteracyassessment.org/locations" target="_blank" rel="noopener">
+            <h3>Northstar Digital Literacy</h3>
+            <p>Locations offering computer skills classes and certificates.</p>
+            <span>Visit site →</span>
+          </a>
+          <a class="card link-card" href="https://www.everyoneon.org/" target="_blank" rel="noopener">
+            <h3>EveryoneOn</h3>
+            <p>Digital skills training and low-cost internet by ZIP code.</p>
+            <span>Visit site →</span>
+          </a>
+        </div>
+      </div>
+
+      <p class="loc-credit">Map data: OpenStreetMap contributors. Class information is provided by each program; please confirm details before you go.</p>
+    </section>
+    <!-- ===== END LOCATOR ===== -->
+  </main>
+
+  <!-- Footer is added here by main.js -->
+  <div id="site-footer"></div>
+
+  <!-- Map library (must load before main.js) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script src="main.js"></script>
+</body>
+</html>

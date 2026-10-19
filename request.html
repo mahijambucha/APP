@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a class · TechScale</title>
+  <meta name="description" content="Ask for a coding, AI, or computer class in your community.">
+
+  <!-- Font: Inter Tight -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="request">
+
+  <!-- Nav bar is added here by main.js -->
+  <div id="site-header"></div>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Get involved</span>
+        <h1>Request a class in <span class="accent">your community</span></h1>
+        <p class="lead">No coding, AI, or computer class near you? Tell us what you'd like to learn. We'll use requests to show libraries, schools, and community centers where people want classes.</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <form id="request-form" class="card form-card">
+        <div class="form-grid">
+          <label>ZIP code *
+            <input name="zip" type="text" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" required>
+          </label>
+          <label>Topic *
+            <select name="topic" required>
+              <option value="">Choose one</option>
+              <option value="ai">AI literacy</option>
+              <option value="coding">Coding</option>
+              <option value="basics">Computer basics</option>
+              <option value="stem">STEM &amp; robotics</option>
+            </select>
+          </label>
+          <label>Who is it for? *
+            <select name="age" required>
+              <option value="">Choose one</option>
+              <option>Kids (under 13)</option>
+              <option>Teens (13–17)</option>
+              <option>Adults</option>
+              <option>Seniors</option>
+              <option>All ages</option>
+            </select>
+          </label>
+          <label>Preferred time
+            <select name="time">
+              <option value="">No preference</option>
+              <option>Weekday afternoons</option>
+              <option>Weekday evenings</option>
+              <option>Weekends</option>
+            </select>
+          </label>
+          <label class="full">Email (optional)
+            <input name="email" type="email" placeholder="So we can tell you when a class opens">
+          </label>
+          <label class="full">Anything else?
+            <textarea name="notes" rows="4" placeholder="For example: a place that could host it, or a language you'd like it taught in"></textarea>
+          </label>
+          <div class="full">
+            <button type="submit" class="btn btn-dark">Send request</button>
+          </div>
+        </div>
+        <p id="request-msg" class="form-msg" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer is added here by main.js -->
+  <div id="site-footer"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>

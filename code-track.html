@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code · TechScale</title>
+  <meta name="description" content="Learn JavaScript step by step with short lessons and hands-on coding challenges.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="code">
+
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero code-hero">
+      <div class="container code-hero-grid">
+        <div>
+          <span class="eyebrow">Learning track · JavaScript</span>
+          <h1>Your first steps in <span class="accent">code</span></h1>
+          <p class="lead">Learn by doing. Take a short lesson, write a little code, and see what happens—no setup required.</p>
+          <a class="btn btn-dark" href="#lesson-1-1">Start lesson 1.1 <span class="arrow">→</span></a>
+        </div>
+        <aside class="code-track-card card" aria-label="Track overview">
+          <span class="code-track-icon" aria-hidden="true">&lt;/&gt;</span>
+          <p class="code-track-label">Your learning path</p>
+          <h2>JavaScript basics</h2>
+          <p>Five bite-sized lessons, from your first line of code to reusable functions.</p>
+          <div class="code-track-progress"><span></span></div>
+          <div class="code-track-progress-label"><span>2 lessons ready</span><span>0 of 5 complete</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="container code-lessons" aria-labelledby="lesson-list-title">
+      <div class="section-head code-section-head">
+        <span class="eyebrow">The course</span>
+        <h2 id="lesson-list-title">Small steps. Real skills.</h2>
+        <p>Work through the lessons in order. Your code runs right here in a browser sandbox.</p>
+      </div>
+
+      <nav class="lesson-roadmap" aria-label="Code lessons">
+        <a class="roadmap-card card" href="#lesson-1-1">
+          <span class="roadmap-number">1.1</span>
+          <span class="roadmap-copy"><strong>Say hello</strong><small>Print your first message</small></span>
+          <span class="roadmap-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="roadmap-card card" href="#lesson-1-2">
+          <span class="roadmap-number">1.2</span>
+          <span class="roadmap-copy"><strong>Meet variables</strong><small>Save and use information</small></span>
+          <span class="roadmap-arrow" aria-hidden="true">↗</span>
+        </a>
+        <div class="roadmap-card card roadmap-upcoming">
+          <span class="roadmap-number">1.3</span>
+          <span class="roadmap-copy"><strong>Make a decision</strong><small>Coming soon</small></span>
+          <span class="roadmap-lock" aria-label="Coming soon">•••</span>
+        </div>
+        <div class="roadmap-card card roadmap-upcoming">
+          <span class="roadmap-number">1.4</span>
+          <span class="roadmap-copy"><strong>Repeat with loops</strong><small>Coming soon</small></span>
+          <span class="roadmap-lock" aria-label="Coming soon">•••</span>
+        </div>
+        <div class="roadmap-card card roadmap-upcoming">
+          <span class="roadmap-number">1.5</span>
+          <span class="roadmap-copy"><strong>Build a function</strong><small>Coming soon</small></span>
+          <span class="roadmap-lock" aria-label="Coming soon">•••</span>
+        </div>
+      </nav>
+
+      <article class="lesson-card card" id="lesson-1-1">
+        <header class="lesson-heading">
+          <span class="lesson-number">1.1</span>
+          <div>
+            <p class="lesson-kicker">Your first program · 5 min</p>
+            <h2>Say hello to JavaScript</h2>
+            <p>Use <code>console.log()</code> to make your program display a message.</p>
+          </div>
+        </header>
+        <div class="lesson-video" role="img" aria-label="Video lesson placeholder">
+          <span class="video-play" aria-hidden="true">▶</span>
+          <span>Video lesson coming soon</span>
+        </div>
+        <div class="lesson-challenge">
+          <div class="challenge-copy">
+            <span class="challenge-label">Your turn</span>
+            <h3>Make the computer say hello</h3>
+            <p>Write JavaScript that prints <code>Hello, world!</code> to the output panel.</p>
+            <div class="hint-card"><strong>Hint</strong><span>Put your message inside <code>console.log("...")</code>.</span></div>
+          </div>
+          <div class="code-playground">
+            <div class="editor-topbar"><span><i></i><i></i><i></i></span><span>script.js</span><span>JavaScript</span></div>
+            <label class="sr-only" for="lesson-1-1-code">Your JavaScript code for lesson 1.1</label>
+            <textarea id="lesson-1-1-code" class="code-editor" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" aria-describedby="lesson-1-1-feedback">// Type your code here
+</textarea>
+            <div class="editor-actions">
+              <button class="btn btn-dark run-code" type="button" data-lesson="lesson-1-1">Run &amp; check <span aria-hidden="true">▶</span></button>
+              <button class="editor-reset" type="button" data-reset="lesson-1-1-code">Reset code</button>
+            </div>
+            <div class="output-panel">
+              <div class="output-heading"><span>Output</span><span class="output-state" id="lesson-1-1-state">Ready</span></div>
+              <pre class="code-output" id="lesson-1-1-output" aria-live="polite">Your result will appear here.</pre>
+            </div>
+            <p class="lesson-feedback" id="lesson-1-1-feedback" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </article>
+
+      <article class="lesson-card card" id="lesson-1-2">
+        <header class="lesson-heading">
+          <span class="lesson-number">1.2</span>
+          <div>
+            <p class="lesson-kicker">Store information · 7 min</p>
+            <h2>Meet variables</h2>
+            <p>A variable gives a value a name so you can use it later in your program.</p>
+          </div>
+        </header>
+        <div class="lesson-video" role="img" aria-label="Video lesson placeholder">
+          <span class="video-play" aria-hidden="true">▶</span>
+          <span>Video lesson coming soon</span>
+        </div>
+        <div class="lesson-challenge">
+          <div class="challenge-copy">
+            <span class="challenge-label">Your turn</span>
+            <h3>Personalize the greeting</h3>
+            <p>Create a variable named <code>name</code>, then use it to print <code>Hello, Maya!</code>.</p>
+            <div class="hint-card"><strong>Hint</strong><span>Try <code>let name = "Maya";</code>, then join the text with <code>+</code>.</span></div>
+          </div>
+          <div class="code-playground">
+            <div class="editor-topbar"><span><i></i><i></i><i></i></span><span>script.js</span><span>JavaScript</span></div>
+            <label class="sr-only" for="lesson-1-2-code">Your JavaScript code for lesson 1.2</label>
+            <textarea id="lesson-1-2-code" class="code-editor" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" aria-describedby="lesson-1-2-feedback">// Create a variable named name
+// Then print: Hello, Maya!
+</textarea>
+            <div class="editor-actions">
+              <button class="btn btn-dark run-code" type="button" data-lesson="lesson-1-2">Run &amp; check <span aria-hidden="true">▶</span></button>
+              <button class="editor-reset" type="button" data-reset="lesson-1-2-code">Reset code</button>
+            </div>
+            <div class="output-panel">
+              <div class="output-heading"><span>Output</span><span class="output-state" id="lesson-1-2-state">Ready</span></div>
+              <pre class="code-output" id="lesson-1-2-output" aria-live="polite">Your result will appear here.</pre>
+            </div>
+            <p class="lesson-feedback" id="lesson-1-2-feedback" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </article>
+
+      <div class="code-track-next card">
+        <div><span class="eyebrow">Keep going</span><h2>More coding challenges are on the way.</h2><p>Next up: decisions, loops, and writing your own functions.</p></div>
+        <a class="btn btn-outline" href="locator.html">Find a class near you <span class="arrow">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="main.js"></script>
+</body>
+</html>

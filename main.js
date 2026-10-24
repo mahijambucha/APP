@@ -646,6 +646,102 @@ const NAV = [
 
 
 /* =========================================================
+   TRACK CERTIFICATES — persistent completion records, no certificate UI
+   ========================================================= */
+(function trackCertificates() {
+  const tracks = {
+    ai: {
+      skill: "AI Literacy",
+      requiredLessons: ["ai-quiz-1", "ai-quiz-2"]
+    },
+    code: {
+      skill: "JavaScript Programming",
+      requiredLessons: ["lesson-1-1", "lesson-1-2", "lesson-4-1"]
+    }
+  };
+  const progressKey = "techscale:track-progress:v1";
+  const certificatesKey = "techscale:certificates:v1";
+
+  const readStore = (key) => {
+    try {
+      const stored = localStorage.getItem(key);
+      if (!stored) return {};
+      const value = JSON.parse(stored);
+      if (!value || typeof value !== "object" || Array.isArray(value)) {
+        throw new Error("Stored value must be an object.");
+      }
+      return value;
+    } catch (error) {
+      console.error(`Could not read ${key}; starting with empty track records.`, error);
+      return {};
+    }
+  };
+
+  const progress = readStore(progressKey);
+  const certificates = readStore(certificatesKey);
+
+  const saveStore = (key, value) => {
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+      console.error(`Could not save ${key}; track records may not persist.`, error);
+    }
+  };
+
+  const getCompletedLessons = (trackId) => {
+    const track = tracks[trackId];
+    if (!track) throw new RangeError(`Unknown track: ${trackId}`);
+    const saved = Array.isArray(progress[trackId]) ? progress[trackId] : [];
+    return track.requiredLessons.filter((lessonId) => saved.includes(lessonId));
+  };
+
+  const getCertificate = (trackId) => {
+    if (!tracks[trackId]) throw new RangeError(`Unknown track: ${trackId}`);
+    const certificate = certificates[trackId];
+    return certificate && typeof certificate === "object" ? certificate : null;
+  };
+
+  const completeLesson = (trackId, lessonId) => {
+    const track = tracks[trackId];
+    if (!track) throw new RangeError(`Unknown track: ${trackId}`);
+    if (!track.requiredLessons.includes(lessonId)) {
+      throw new RangeError(`Unknown lesson "${lessonId}" for track "${trackId}".`);
+    }
+
+    const completedLessons = new Set(getCompletedLessons(trackId));
+    completedLessons.add(lessonId);
+    progress[trackId] = track.requiredLessons.filter((id) => completedLessons.has(id));
+    saveStore(progressKey, progress);
+
+    const existingCertificate = getCertificate(trackId);
+    if (existingCertificate) return existingCertificate;
+    if (progress[trackId].length !== track.requiredLessons.length) return null;
+
+    const randomId = window.crypto && typeof window.crypto.randomUUID === "function"
+      ? window.crypto.randomUUID()
+      : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+    const certificate = {
+      certificateId: `TS-${randomId}`,
+      trackId,
+      skill: track.skill,
+      issuedAt: new Date().toISOString(),
+      completedLessons: [...progress[trackId]]
+    };
+    certificates[trackId] = certificate;
+    saveStore(certificatesKey, certificates);
+    window.dispatchEvent(new CustomEvent("techscale:certificate-generated", { detail: certificate }));
+    return certificate;
+  };
+
+  window.TechScaleCertificates = Object.freeze({
+    completeLesson,
+    getCertificate,
+    getCompletedLessons
+  });
+})();
+
+
+/* =========================================================
    CODE TRACK — browser-isolated JavaScript exercises
    ========================================================= */
 (function codeTrack() {
@@ -659,6 +755,11 @@ const NAV = [
       expected: "Hello, Maya!",
       requiresCode: /\b(?:let|const)\s+name\b/,
       missingCodeMessage: 'Create a variable named "name" with let or const.'
+    },
+    "lesson-4-1": {
+      expected: '{"average":74,"highest":91,"passing":3}',
+      requiresCode: /\bfunction\s+analyzeScores\s*\(/,
+      missingCodeMessage: "Define the analyzeScores(scores) function before calling it."
     }
   };
 
@@ -772,6 +873,7 @@ const NAV = [
           state.classList.add("is-correct");
           feedback.classList.add("is-correct");
           feedback.textContent = "That's right—nice work!";
+          window.TechScaleCertificates.completeLesson("code", lessonId);
         } else {
           state.textContent = "Try again";
           state.classList.add("is-error");
@@ -795,9 +897,12 @@ const NAV = [
     button.addEventListener("click", () => {
       const editor = document.getElementById(button.dataset.reset);
       if (!editor) return;
-      editor.value = button.dataset.reset === "lesson-1-1-code"
-        ? "// Type your code here\n"
-        : '// Create a variable named name\n// Then print: Hello, Maya!\n';
+      const resetValues = {
+        "lesson-1-1-code": "// Type your code here\n",
+        "lesson-1-2-code": '// Create a variable named name\n// Then print: Hello, Maya!\n',
+        "lesson-4-1-code": "// Write analyzeScores(scores), then print its result as JSON.\n// Input: [82, 55, 91, 68, 74]\n"
+      };
+      editor.value = resetValues[button.dataset.reset] || "";
       editor.focus();
     });
   });
@@ -985,6 +1090,7 @@ const NAV = [
       }
 
       complete = true;
+      window.TechScaleCertificates.completeLesson("ai", quiz.dataset.quiz);
       progressText.textContent = "Quiz complete";
       progressBar.style.width = "100%";
       questionEl.textContent = `You got ${score} out of ${questions.length} right.`;

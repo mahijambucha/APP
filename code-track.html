@@ -30,7 +30,7 @@
           <h2>JavaScript basics</h2>
           <p>Five bite-sized lessons, from your first line of code to reusable functions.</p>
           <div class="code-track-progress"><span></span></div>
-          <div class="code-track-progress-label"><span>2 lessons ready</span><span>0 of 5 complete</span></div>
+          <div class="code-track-progress-label"><span>3 interactive lessons</span><span>0 complete</span></div>
         </aside>
       </div>
     </section>
@@ -38,11 +38,18 @@
     <section class="container code-lessons" aria-labelledby="lesson-list-title">
       <div class="section-head code-section-head">
         <span class="eyebrow">The course</span>
-        <h2 id="lesson-list-title">Small steps. Real skills.</h2>
-        <p>Work through the lessons in order. Your code runs right here in a browser sandbox.</p>
+        <h2 id="lesson-list-title">From first steps to bigger challenges.</h2>
+        <p>Explore the course units. Interactive coding challenges run in a browser sandbox.</p>
       </div>
 
-      <nav class="lesson-roadmap" aria-label="Code lessons">
+      <nav class="code-unit-menu" aria-label="Code course units">
+        <a href="#unit-1">Unit 1 <span>Foundations</span></a>
+        <a href="#unit-2">Unit 2 <span>Control flow</span></a>
+        <a href="#unit-3">Unit 3 <span>Data &amp; functions</span></a>
+        <a href="#unit-4">Unit 4 <span>Problem solving</span></a>
+      </nav>
+
+      <nav class="lesson-roadmap" id="unit-1" aria-label="Unit 1: JavaScript foundations">
         <a class="roadmap-card card" href="#lesson-1-1">
           <span class="roadmap-number">1.1</span>
           <span class="roadmap-copy"><strong>Say hello</strong><small>Print your first message</small></span>
@@ -79,9 +86,13 @@
             <p>Use <code>console.log()</code> to make your program display a message.</p>
           </div>
         </header>
-        <div class="lesson-video" role="img" aria-label="Video lesson placeholder">
-          <span class="video-play" aria-hidden="true">▶</span>
-          <span>Video lesson coming soon</span>
+        <div class="lesson-video code-lesson-video">
+          <iframe
+            src="https://www.youtube.com/embed/zofMnllkVfI"
+            title="Introduction to JavaScript — lesson 1.1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
         </div>
         <div class="lesson-challenge">
           <div class="challenge-copy">
@@ -117,9 +128,13 @@
             <p>A variable gives a value a name so you can use it later in your program.</p>
           </div>
         </header>
-        <div class="lesson-video" role="img" aria-label="Video lesson placeholder">
-          <span class="video-play" aria-hidden="true">▶</span>
-          <span>Video lesson coming soon</span>
+        <div class="lesson-video code-lesson-video">
+          <iframe
+            src="https://www.youtube.com/embed/G41G_PEWFjE"
+            title="JavaScript variables — lesson 1.2"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
         </div>
         <div class="lesson-challenge">
           <div class="challenge-copy">
@@ -147,8 +162,74 @@
         </div>
       </article>
 
+      <section class="code-unit-section" id="unit-2" aria-labelledby="unit-2-title">
+        <span class="eyebrow">Unit 2</span>
+        <h2 id="unit-2-title">Control flow</h2>
+        <p>Make programs respond to conditions and repeat work with loops.</p>
+        <div class="code-unit-topics">
+          <article class="card code-unit-topic"><span class="roadmap-number">2.1</span><div><h3>Make decisions</h3><p>Use conditions to choose what your program does.</p></div></article>
+          <article class="card code-unit-topic"><span class="roadmap-number">2.2</span><div><h3>Repeat with loops</h3><p>Run a set of instructions more than once.</p></div></article>
+        </div>
+      </section>
+
+      <section class="code-unit-section" id="unit-3" aria-labelledby="unit-3-title">
+        <span class="eyebrow">Unit 3</span>
+        <h2 id="unit-3-title">Data and functions</h2>
+        <p>Organize related information and reuse logic in your programs.</p>
+        <div class="code-unit-topics">
+          <article class="card code-unit-topic"><span class="roadmap-number">3.1</span><div><h3>Work with arrays</h3><p>Store and process collections of values.</p></div></article>
+          <article class="card code-unit-topic"><span class="roadmap-number">3.2</span><div><h3>Write reusable functions</h3><p>Break a problem into named, reusable steps.</p></div></article>
+        </div>
+      </section>
+
+      <section class="code-unit-section" id="unit-4" aria-labelledby="unit-4-title">
+        <span class="eyebrow">Unit 4 · Advanced practice</span>
+        <h2 id="unit-4-title">Problem solving</h2>
+        <p>Combine functions, arrays, loops, and careful reasoning to solve a complete problem.</p>
+        <a class="roadmap-card card code-unit-link" href="#lesson-4-1">
+          <span class="roadmap-number">4.1</span>
+          <span class="roadmap-copy"><strong>Analyze a class score report</strong><small>Interactive advanced challenge</small></span>
+          <span class="roadmap-arrow" aria-hidden="true">↗</span>
+        </a>
+      </section>
+
+      <article class="lesson-card card code-unit-lesson" id="lesson-4-1">
+        <header class="lesson-heading">
+          <span class="lesson-number">4.1</span>
+          <div>
+            <p class="lesson-kicker">Advanced challenge · 15 min</p>
+            <h2>Analyze a class score report</h2>
+            <p>Write a function that summarizes a list of scores using array logic.</p>
+          </div>
+        </header>
+        <div class="lesson-challenge">
+          <div class="challenge-copy">
+            <span class="challenge-label">Your challenge</span>
+            <h3>Build a score analyzer</h3>
+            <p>Implement <code>analyzeScores(scores)</code>. Return an object with the average score, the highest score, and how many scores are at least 70. Then print the result as JSON for <code>[82, 55, 91, 68, 74]</code>.</p>
+            <div class="hint-card"><strong>Expected result</strong><span><code>{"average":74,"highest":91,"passing":3}</code></span></div>
+          </div>
+          <div class="code-playground">
+            <div class="editor-topbar"><span><i></i><i></i><i></i></span><span>script.js</span><span>JavaScript</span></div>
+            <label class="sr-only" for="lesson-4-1-code">Your JavaScript solution for lesson 4.1</label>
+            <textarea id="lesson-4-1-code" class="code-editor" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" aria-describedby="lesson-4-1-feedback">// Write analyzeScores(scores), then print its result as JSON.
+// Input: [82, 55, 91, 68, 74]
+</textarea>
+            <div class="editor-actions">
+              <button class="btn btn-dark run-code" type="button" data-lesson="lesson-4-1">Run &amp; check <span aria-hidden="true">▶</span></button>
+              <button class="editor-reset" type="button" data-reset="lesson-4-1-code">Reset code</button>
+            </div>
+            <div class="output-panel">
+              <div class="output-heading"><span>Output</span><span class="output-state" id="lesson-4-1-state">Ready</span></div>
+              <pre class="code-output" id="lesson-4-1-output" aria-live="polite">Your result will appear here.</pre>
+            </div>
+            <p class="lesson-feedback" id="lesson-4-1-feedback" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </article>
+
       <div class="code-track-next card">
-        <div><span class="eyebrow">Keep going</span><h2>More coding challenges are on the way.</h2><p>Next up: decisions, loops, and writing your own functions.</p></div>
+        <div><span class="eyebrow">Keep going</span><h2>Ready for another challenge?</h2><p>Practice your JavaScript skills with a local class or continue exploring the course units.</p></div>
         <a class="btn btn-outline" href="locator.html">Find a class near you <span class="arrow">→</span></a>
       </div>
     </section>
